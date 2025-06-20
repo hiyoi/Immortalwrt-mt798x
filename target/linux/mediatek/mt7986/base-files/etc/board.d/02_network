@@ -49,6 +49,12 @@ mediatek_setup_interfaces()
  	tplink,tl-xdr6088)
  		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 lan5" eth1
  		;;
+	beeconmini,seed-ac2)
+		ucidef_set_interfaces_lan_wan eth0 eth1
+		;;
+	beeconmini,seed-ac3)
+		ucidef_set_interfaces_lan_wan eth1 eth0
+		;;
 	*)
 		ucidef_set_interfaces_lan_wan "lan0 lan1 lan2 lan3 lan4 lan5" eth1
 		;;
@@ -122,6 +128,11 @@ mediatek_setup_macs()
 		wan_mac=$(mtd_get_mac_ascii Bdata ethaddr_wan)
 		lan_mac=$(mtd_get_mac_ascii Bdata ethaddr)
 		;;
+	beeconmini,seed-ac3|\
+	beeconmini,seed-ac2)
+		lan_mac=$(mtd_get_mac_binary "art" 0x0)
+		wan_mac=$(macaddr_add "$lan_mac" 1)
+		;;		
 	*)
 		lan_mac=$(mtd_get_mac_binary "Factory" "0x2A")
 		wan_mac=$(mtd_get_mac_binary "Factory" "0x24")
