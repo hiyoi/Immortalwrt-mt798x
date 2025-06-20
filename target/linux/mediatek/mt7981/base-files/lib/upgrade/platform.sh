@@ -229,6 +229,12 @@ platform_do_upgrade() {
 	xiaomi,mi-router-wr30u-stock)
 		xiaomi_mt7981_nand_upgrade_tar "$1"
 		;;
+	beeconmini,seed-ac2) 
+		CI_KERNPART="kernel"
+		CI_ROOTPART="rootfs"
+		CI_DATAPART="rootfs_data"
+		emmc_do_upgrade "$1"
+		;;
 	*)
 		default_do_upgrade "$1"
 		;;
@@ -271,7 +277,8 @@ platform_check_image() {
 	nradio,wt9103 |\
 	*snand* |\
 	*emmc* |\
-	routerich,ax3000)
+	routerich,ax3000 |\
+	beeconmini,seed-ac2)
 		# tar magic `ustar`
 		magic="$(dd if="$1" bs=1 skip=257 count=5 2>/dev/null)"
 

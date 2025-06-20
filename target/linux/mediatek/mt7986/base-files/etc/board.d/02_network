@@ -128,8 +128,7 @@ mediatek_setup_macs()
 		wan_mac=$(mtd_get_mac_ascii Bdata ethaddr_wan)
 		lan_mac=$(mtd_get_mac_ascii Bdata ethaddr)
 		;;
-	beeconmini,seed-ac3|\
-	beeconmini,seed-ac2)
+	beeconmini,seed-ac3)
 		lan_mac=$(mtd_get_mac_binary "art" 0x0)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		;;		

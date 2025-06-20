@@ -162,8 +162,7 @@ platform_do_upgrade() {
  		CI_ROOTPART="rootfs"
  		emmc_do_upgrade "$1"
  		;;
-	beeconmini,seed-ac3|\
-	beeconmini,seed-ac2)
+	beeconmini,seed-ac3)
 		CI_KERNPART="kernel"
 		CI_ROOTPART="rootfs"
 		CI_DATAPART="rootfs_data"
@@ -194,7 +193,6 @@ platform_check_image() {
 	tplink,tl-xdr608* |\
 	zyxel,ex5700 |\
 	beeconmini,seed-ac3 |\
-	beeconmini,seed-ac2 |\
 	*emmc*)
 		# tar magic `ustar`
 		magic="$(dd if="$1" bs=1 skip=257 count=5 2>/dev/null)"

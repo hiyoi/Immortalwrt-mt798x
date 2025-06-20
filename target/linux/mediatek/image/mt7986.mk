@@ -553,16 +553,6 @@ define Device/zyxel_ex5700
 endef
 TARGET_DEVICES += zyxel_ex5700
 
-define Device/beeconmini_seed-ac2
-  DEVICE_VENDOR := BeeconMini
-  DEVICE_MODEL := SEED AC2
-  DEVICE_DTS := mt7981b-beeconmini-seed-ac2
-  DEVICE_DTS_DIR := $(DTS_DIR)/mediatek
-  DEVICE_PACKAGES := kmod-fs-f2fs kmod-fs-ext4 mkf2fs e2fsprogs kmod-switch-rtl8373 kmod-mt7981-firmware mt7981-wo-firmware
-  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
-endef
-TARGET_DEVICES += beeconmini_seed-ac2
-
 define Device/beeconmini_seed-ac3
   DEVICE_VENDOR := BeeconMini
   DEVICE_MODEL := SEED AC3
