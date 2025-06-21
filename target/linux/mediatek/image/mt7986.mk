@@ -558,7 +558,8 @@ define Device/beeconmini_seed-ac3
   DEVICE_MODEL := SEED AC3
   DEVICE_DTS := mt7986a-beeconmini-seed-ac3
   DEVICE_DTS_DIR := $(DTS_DIR)/mediatek
-  DEVICE_PACKAGES := kmod-fs-f2fs kmod-fs-ext4 mkf2fs e2fsprogs kmod-switch-rtl8373n kmod-usb3 kmod-mt7986-firmware mt7981-wo-firmware
+  SUPPORTED_DEVICES := beeconmini,seed-ac3
+  DEVICE_PACKAGES := kmod-fs-f2fs kmod-fs-ext4 mkf2fs e2fsprogs kmod-mmc kmod-switch-rtl8373n kmod-usb3 kmod-mt7986-firmware mt7981-wo-firmware
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
 TARGET_DEVICES += beeconmini_seed-ac3
