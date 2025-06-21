@@ -161,6 +161,7 @@ platform_do_upgrade() {
 	*emmc*)
  		CI_KERNPART="kernel"
  		CI_ROOTPART="rootfs"
+		CI_OVERLAYPART="overlay"
  		emmc_do_upgrade "$1"
  		;;
 	*)
